@@ -69,7 +69,7 @@ const Login = () => {
         />
       </div>
       <form
-        className="bg-black absolute px-16 py-14 my-28 mx-auto left-0 right-0 w-[31%] rounded-md bg-opacity-[87%] h-[78%]"
+        className="bg-black absolute px-16 py-14 my-28 mx-auto left-0 right-0 w-[31%] rounded-md bg-opacity-[87%]"
         onSubmit={(e) => {
           e.preventDefault();
         }}
