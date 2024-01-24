@@ -6,12 +6,18 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [validMessage, setValidMessage] = useState();
   const emailValue = useRef(null);
   const passwordValue = useRef(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleButtonClick = () => {
     const message = checkValidData(
@@ -22,33 +28,61 @@ const Login = () => {
     if (message) return;
 
     if (!isSignIn) {
-
-      createUserWithEmailAndPassword(auth, emailValue.current.value, passwordValue.current.value)
+      createUserWithEmailAndPassword(
+        auth,
+        emailValue.current.value,
+        passwordValue.current.value
+      )
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user)
-          // ...
+          //here this user is not the updated one so , after that we have to dispatch adduser
+          updateProfile(user, {
+            displayName: "nitin",
+            photoURL: "https://avatars.githubusercontent.com/u/97622787?v=4",
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+
+              navigate("/browse");
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              setValidMessage(errorCode + "-" + errorMessage);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setValidMessage(errorCode + "-" + errorMessage)
+          setValidMessage(errorCode + "-" + errorMessage);
           // ..
         });
     } else {
-
-      signInWithEmailAndPassword(auth, emailValue.current.value, passwordValue.current.value)
+      signInWithEmailAndPassword(
+        auth,
+        emailValue.current.value,
+        passwordValue.current.value
+      )
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user)
+          console.log(user);
+          navigate("/browse");
           // ...
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setValidMessage(errorCode + "-" + errorMessage)
+          setValidMessage(errorCode + "-" + errorMessage);
         });
     }
   };
