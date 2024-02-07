@@ -2,11 +2,8 @@ import React, { useEffect } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./Login";
 import Browse from "./Browse";
-import ErrorPage from "./ErrorPage"
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../utils/firebase";
+import ErrorPage from "./ErrorPage";
 import { useDispatch } from "react-redux";
-import { addUser, removeUser } from "../utils/userSlice";
 
 function Body() {
   const dispatch = useDispatch();
@@ -22,10 +19,10 @@ function Body() {
     },
     {
       path: "/error",
-      element: <ErrorPage/>,
+      element: <ErrorPage />,
     },
   ]);
-  
+
   return (
     <div>
       <RouterProvider router={appRouter} />

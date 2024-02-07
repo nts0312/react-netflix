@@ -47,15 +47,16 @@ function Header() {
   return (
     //gradient used
     <div className="absolute w-screen h-24 bg-gradient-to-b from-black py-2 px-8 z-10 flex justify-between">
-      <img
-        className="w-52 h-23"
-        src={LOGO}
-        alt="netflix-logo"
-      />
+      <img className="w-52 h-23" src={LOGO} alt="netflix-logo" />
       {user && (
         <div className="flex justify-between w-12 mx-1">
-          <img className="h-10 my-2"src={user?.photoURL} alt="userIcon" onClick={handleSignOut}/>
-         {/* <button className="px-4" onClick={handleSignOut}> 🔽 </button> */}
+          <img
+            className="h-10 my-2"
+            src={user?.photoURL}
+            alt="userIcon"
+            onClick={handleSignOut}
+          />
+          {/* <button className="px-4" onClick={handleSignOut}> 🔽 </button> */}
         </div>
       )}
     </div>

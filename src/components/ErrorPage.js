@@ -1,11 +1,11 @@
 import React from "react";
 
 const ErrorPage = () => {
-    return(
+  return (
     <div>
-        <h1>ERROR PLEASE CHECK !!!</h1>
+      <h1>ERROR PLEASE CHECK !!!</h1>
     </div>
-    )
-}
+  );
+};
 
-export default ErrorPage
+export default ErrorPage;
