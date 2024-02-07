@@ -25,27 +25,7 @@ function Body() {
       element: <ErrorPage/>,
     },
   ]);
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const { uid, email, displayName, photoURL } = user;
-        dispatch(
-          addUser({
-            uid: uid,
-            email: email,
-            displayName: displayName,
-            photoURL: photoURL
-          })
-        );
-        //  navigate("/browse");
-      } else {
-        dispatch(removeUser());
-        // navigate("/");//can not use navigate here -------useNavigate() may be used only in the context of a <Router> component.
-      }
-    });
-  }, []);
-
+  
   return (
     <div>
       <RouterProvider router={appRouter} />
