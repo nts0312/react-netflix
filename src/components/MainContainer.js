@@ -9,10 +9,10 @@ export const MainContainer = () => {
   if (!movies) return; //EARLY RETURN
   const mainMovie = movies[0];
 
-  const { original_title, overview, id } = mainMovie;
+  const { original_title, overview, id ,adult } = mainMovie;
   return (
     <div>
-      <VideoTitle title={original_title} overview={overview} />
+      <VideoTitle title={original_title} overview={overview} adult={adult}/>
       <VideoBackground movieId={id} />
     </div>
   );
