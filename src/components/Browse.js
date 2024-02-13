@@ -12,7 +12,7 @@ const Browse = () => {
   useMovieGenres()
   useTopRatedMovies()
   return (
-    <div>
+    <div className="">
       <Header />
       <MainContainer />
       <SecondaryContainer />
