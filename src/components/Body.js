@@ -3,11 +3,9 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./Login";
 import Browse from "./Browse";
 import ErrorPage from "./ErrorPage";
-import { useDispatch } from "react-redux";
 
 function Body() {
-  const dispatch = useDispatch();
-
+// useDocumentVisible() ----> on switching tab play/pause video feature pending
   const appRouter = createBrowserRouter([
     {
       path: "/",

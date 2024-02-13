@@ -5,19 +5,19 @@ import { useSelector } from "react-redux";
 const VideoBackground = ({ movieId }) => {
   const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
   const trailerSound = useSelector((store) => store.movies?.trailerSound);
-  console.log(trailerSound);
 
   useMovieTrailer({ movieId });
   return (
     <div>
       {trailerSound && (
         <iframe
-
           className="w-screen aspect-video"
           src={
-            "https://www.youtube.com/embed/" +
+            "https://www.youtube-nocookie.com/embed/" +
             trailerVideo?.key +
-            "?&autoplay=1&mute=0&vq=hd1080"
+            "?playlist=" +
+            trailerVideo?.key +
+            "&loop=1&rel=0&controls=0&autoplay=1&mute=0&vq=hd1080"
           }
           allow="autoplay"
         ></iframe>
@@ -25,16 +25,15 @@ const VideoBackground = ({ movieId }) => {
 
       {!trailerSound && (
         <iframe
-   
           className="w-screen aspect-video"
           src={
-            "https://www.youtube.com/embed/" +
+            "https://www.youtube-nocookie.com/embed/" +
             trailerVideo?.key +
-            "?&autoplay=1&mute=1&vq=hd1080"
+            "?playlist=" +
+            trailerVideo?.key +
+            "&loop=1&rel=0&controls=0&autoplay=1&mute=1&vq=hd1080"
           }
-          allow="autoplay;"
-          frameborder="0"
-           allowfullscreen
+          allow="autoplay"
         ></iframe>
       )}
     </div>
