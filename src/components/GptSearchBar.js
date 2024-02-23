@@ -11,13 +11,16 @@ const GptSearchBar = () => {
   const handleGptSearchClick = async (e) => {
     e.preventDefault();
     //from here call to gpt api
-
+    const gptQuery =
+      "Act as a movie recommendation system and suggest some movies for the query: " +
+      searchText.current.text +
+      ". Only give me names of 5 movies, comma separted like the example result given head. Example Result: Don, Dus,Run,Kick,Pink";
     const gptResults = await openai.chat.completions.create({
-      messages: [{ role: "user", content: e.target.value }],
+      messages: [{ role: "user", content: gptQuery }],
       model: "gpt-3.5-turbo",
     });
 
-    console.log(gptResults.choices)
+    console.log(gptResults.choices);
   };
 
   return (
