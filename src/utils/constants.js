@@ -37,3 +37,6 @@ export const SUPPORTED_LANGUAGES = [
     name: "Japanese",
   },
 ];
+
+
+export const OPENAI_KEY = "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"
