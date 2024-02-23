@@ -7,7 +7,7 @@ export const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
 
   if (!movies) return; //EARLY RETURN
-  const mainMovie = movies[7];
+  const mainMovie = movies[0];
 
   const { original_title, overview, id, adult } = mainMovie;
   return (

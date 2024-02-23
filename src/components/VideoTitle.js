@@ -40,14 +40,14 @@ const VideoTitle = ({ title, overview, adult }) => {
           </button>
         </div>
 
-        <div className="flex">
+        <div className="flex h-2">
           {!isSound && (
-            <button onClick={handleVideoSound} className="text-2xl ">
+            <button onClick={handleVideoSound} className="text-2xl -mx-9 my-2">
               <FaVolumeXmark />
             </button>
           )}
           {isSound && (
-            <button onClick={handleVideoSound} className="text-2xl ">
+            <button onClick={handleVideoSound} className="text-2xl -mx-9 my-2">
               <FaVolumeHigh />
             </button>
           )}

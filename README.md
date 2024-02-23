@@ -30,6 +30,15 @@
 - Add a label if movies are 18+ or not
 - vol button added
 - Tailwind Classes to make Main Container look awesome
+- Build Secondary Component
+- Build Movie List
+- Build Movie Card
+- TMDB Image CDN URL
+- Made the browser page amazing with Talwind css
+- usePopularMovies/upcomingMovies custom hooks
+- GPT Search Feature => Search Bar + Search Page
+- Multi-language feature\*
+-
 
 # Features
 

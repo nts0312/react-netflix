@@ -15,3 +15,25 @@ export const API_OPTIONS = {
 export const IMG_CDN = "https://image.tmdb.org/t/p/w500";
 
 export const API_KEY = "636245356874d2c9a104eb440c7b96dc";
+
+export const BG_URL =
+  "https://assets.nflxext.com/ffe/siteui/vlv3/c0b69670-89a3-48ca-877f-45ba7a60c16f/2642e08e-4202-490e-8e93-aff04881ee8a/IN-en-20240212-popsignuptwoweeks-perspective_alpha_website_large.jpg";
+
+export const SUPPORTED_LANGUAGES = [
+  {
+    identifier: "en",
+    name: "English",
+  },
+  {
+    identifier: "hi",
+    name: "Hindi",
+  },
+  {
+    identifier: "es",
+    name: "Spanish",
+  },
+  {
+    identifier: "ja",
+    name: "Japanese",
+  },
+];
