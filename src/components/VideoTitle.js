@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { addTrailerSound } from "../utils/movieSlice";
 
 const VideoTitle = ({ title, overview, adult }) => {
+  
   const dispatch = useDispatch();
   const [isSound, setIsSound] = useState(false);
   const handleVideoSound = () => {
@@ -14,12 +15,11 @@ const VideoTitle = ({ title, overview, adult }) => {
   };
 
   useEffect(() => {
-    setIsSound(false);
-  }, []);
+    dispatch(addTrailerSound(isSound));
+  }, [isSound]);
 
-  dispatch(addTrailerSound(isSound));
   return (
-    <div className="w-[100%] h-[840px] pt-[18%] px-16 absolute text-white bg-gradient-to-r from-black overflow-hidden">
+    <div className="w-[100%] h-[840px] lg:h-[1080px]  pt-[18%] px-16 absolute text-white bg-gradient-to-r from-black overflow-hidden">
       <h1 className="text-6xl font-bold w-[40%]">{title}</h1>
       <p className="py-6 text-base w-[40%]">{overview}</p>
 

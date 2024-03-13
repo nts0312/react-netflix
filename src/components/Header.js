@@ -60,10 +60,10 @@ function Header() {
     <div className="absolute w-screen h-24 bg-gradient-to-b from-black py-2 px-8 z-10 flex justify-between">
       <img className="w-52 h-23" src={LOGO} alt="netflix-logo" />
       {user && (
-        <div className="grid grid-cols-3 content-end h-12">
+       <div className="flex space-x-12 items-center">
           {showGptSearch && (
             <select
-              className="grid-cols-1 rounded-sm text-center text-lg mr-12 w-21 h-9 border-4 text-white border-white-500 bg-black"
+              className="rounded-md text-center text-lg border-4 text-white border-white-500 bg-black"
               onChange={handleLanguageChange}
             >
               {SUPPORTED_LANGUAGES.map((lang) => (
@@ -74,14 +74,14 @@ function Header() {
             </select>
           )}
           <button
-            className="bg-indigo-800 text-white text-sm rounded-md grid-cols-1 h-9 mr-2"
+            className="bg-indigo-800 text-white text-lg rounded-md text-center p-1.5 "
             onClick={handleGptSearchClick}
           >
             {showGptSearch ? "Home Page" : "GPT Search"}
           </button>
 
           <img
-            className="w-10 grid-cols-1 h-9 ml-32"
+            className="w-10"
             src={user?.photoURL}
             alt="userIcon"
             onClick={handleSignOut}
